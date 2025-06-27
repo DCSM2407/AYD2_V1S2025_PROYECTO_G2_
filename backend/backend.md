@@ -1,0 +1,1 @@
+Incluye la API desarrollada con Flask. Gestiona la lógica del negocio, las rutas y la conexión con la base de datos MySQL.

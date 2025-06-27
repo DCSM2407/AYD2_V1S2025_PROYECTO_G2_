@@ -1,0 +1,322 @@
+----------------------------------------------
+MUNICIPIOS Y DEPARTAMENTOS
+----------------------------------------------
+📍 Departamentos
+🔹 Obtener todos los departamentos
+
+GET http://localhost:5000/api/departamentos
+
+🔹 Buscar departamento por nombre
+
+GET http://localhost:5000/api/departamentos/search?q=Verapaz
+
+🔹 Obtener departamento por código
+
+GET http://localhost:5000/api/departamentos/16
+
+🏙️ Municipios
+🔹 Obtener todos los municipios
+
+GET http://localhost:5000/api/municipios
+
+🔹 Buscar municipio por nombre
+
+GET http://localhost:5000/api/municipios/search?q=Villa
+
+🔹 Obtener municipio por código
+
+GET http://localhost:5000/api/municipios/1
+
+🔹 Obtener municipios por departamento
+
+GET http://localhost:5000/api/municipios/departamento/01
+
+----------------------------------------------
+CLIENTES
+----------------------------------------------
+1. ✅ Para insertar clientes, usa el endpoint:
+
+-Método: POST 
+-URL: http://localhost:5000/api/clientes
+
+-CLIENTE 1:
+{
+  "ID_cliente": "CL001",
+  "Cod_departamento": "01",
+  "Cod_municipio": 1,
+  "Numero_Cliente": "12345678",
+  "Nombre_Contacto": "Carlos Pérez",
+  "Nombre_Negocio": "Distribuidora El Buen Precio",
+  "Direccion": "Zona 1, Guatemala",
+  "NIT": 12345678,
+  "Encargado_bodega": "Lucía Gómez",
+  "Telefono": "5555-5555",
+  "Tipo_venta_autorizado": "Contado",
+  "Observaciones": "Cliente frecuente"
+}
+
+-CLIENTE 2:
+{
+  "ID_cliente": "CL002",
+  "Cod_departamento": "02",
+  "Cod_municipio": 2,
+  "Numero_Cliente": "0002",
+  "Nombre_Contacto": "María López",
+  "Nombre_Negocio": "Super Tienda Mixco",
+  "Direccion": "Zona 4, Mixco",
+  "NIT": 88991122,
+  "Encargado_bodega": "Carlos Ramírez",
+  "Telefono": "4210-9876",
+  "Tipo_venta_autorizado": "Crédito",
+  "Observaciones": "Solicita visita mensual"
+}
+
+-CLIENTE 3:
+
+{
+  "ID_cliente": "CL004",
+  "Cod_departamento": "01",
+  "Cod_municipio": 1,
+  "Numero_Cliente": "0004",
+  "Nombre_Contacto": "Ana Morales",
+  "Nombre_Negocio": "Mini Market Central",
+  "Direccion": "Zona 1, Guatemala",
+  "NIT": 56785678,
+  "Encargado_bodega": "Marvin López",
+  "Telefono": "5588-4466",
+  "Tipo_venta_autorizado": "Crédito",
+  "Observaciones": "Prefiere comunicación por correo"
+}
+
+-CLIENTE 4:
+
+{
+  "ID_cliente": "CL005",
+  "Cod_departamento": "05",
+  "Cod_municipio": 8,
+  "Numero_Cliente": "0005",
+  "Nombre_Contacto": "Luis Ramírez",
+  "Nombre_Negocio": "Abarrotería El Puerto",
+  "Direccion": "Zona 2, Escuintla",
+  "NIT": 78907890,
+  "Encargado_bodega": "Erika Díaz",
+  "Telefono": "3311-7755",
+  "Tipo_venta_autorizado": "Contado",
+  "Observaciones": "Atiende solo en mañanas"
+}
+
+Resultado esperado:
+{ "message": "Cliente creado exitosamente" }
+
+2. ✅ Obtener todos los clientes
+
+-Método: GET
+
+-URL: http://localhost:5000/api/clientes
+
+Resultado esperado:
+[
+  {
+    "Cod_departamento": "01",
+    "Cod_municipio": 1,
+    "Direccion": "Zona 1, Guatemala",
+    "Encargado_bodega": "Lucía Gómez",
+    "ID_cliente": "CL001",
+    "NIT": 12345678,
+    "Nombre_Contacto": "Carlos Pérez",
+    "Nombre_Negocio": "Distribuidora El Buen Precio",
+    "Numero_Cliente": "12345678",
+    "Observaciones": "Cliente frecuente",
+    "Telefono": "5555-5555",
+    "Tipo_venta_autorizado": "Contado"
+  },
+  {
+    "Cod_departamento": "02",
+    "Cod_municipio": 2,
+    "Direccion": "Zona 4, Mixco",
+    "Encargado_bodega": "Carlos Ramírez",
+    "ID_cliente": "CL002",
+    "NIT": 88991122,
+    "Nombre_Contacto": "María López",
+    "Nombre_Negocio": "Super Tienda Mixco",
+    "Numero_Cliente": "0002",
+    "Observaciones": "Solicita visita mensual",
+    "Telefono": "4210-9876",
+    "Tipo_venta_autorizado": "Crédito"
+  },
+  {
+    "Cod_departamento": "03",
+    "Cod_municipio": 5,
+    "Direccion": "Calle Real, Jocotenango",
+    "Encargado_bodega": "Sofía Hernández",
+    "ID_cliente": "CL003",
+    "NIT": 12312312,
+    "Nombre_Contacto": "Pedro González",
+    "Nombre_Negocio": "Tienda Jocotenango",
+    "Numero_Cliente": "0003",
+    "Observaciones": "Compra por volumen",
+    "Telefono": "4501-3322",
+    "Tipo_venta_autorizado": "Contado"
+  },
+  {
+    "Cod_departamento": "05",
+    "Cod_municipio": 8,
+    "Direccion": "Zona 2, Escuintla",
+    "Encargado_bodega": "Erika Díaz",
+    "ID_cliente": "CL005",
+    "NIT": 78907890,
+    "Nombre_Contacto": "Luis Ramírez",
+    "Nombre_Negocio": "Abarrotería El Puerto",
+    "Numero_Cliente": "0005",
+    "Observaciones": "Atiende solo en mañanas",
+    "Telefono": "3311-7755",
+    "Tipo_venta_autorizado": "Contado"
+  }
+]
+
+3. ✅ Obtener cliente por ID
+-Método: GET
+
+-URL: http://localhost:5000/api/clientes/CL001
+
+Resultado esperado:
+{
+  "Cod_departamento": "01",
+  "Cod_municipio": 1,
+  "Direccion": "Zona 1, Guatemala",
+  "Encargado_bodega": "Lucía Gómez",
+  "ID_cliente": "CL001",
+  "NIT": 12345678,
+  "Nombre_Contacto": "Carlos Pérez",
+  "Nombre_Negocio": "Distribuidora El Buen Precio",
+  "Numero_Cliente": "12345678",
+  "Observaciones": "Cliente frecuente",
+  "Telefono": "5555-5555",
+  "Tipo_venta_autorizado": "Contado"
+}
+
+4. ✅ Actualizar un cliente
+-Método: PUT
+
+-URL: http://localhost:5000/api/clientes/CL002
+
+{
+  "Cod_departamento": "02",
+  "Cod_municipio": 2,
+  "Numero_Cliente": "0002",
+  "Nombre_Contacto": "María López",
+  "Nombre_Negocio": "Super Tienda Mixco",
+  "Direccion": "Zona 5, Mixco",  
+  "NIT": 88991122,
+  "Encargado_bodega": "Carlos Ramírez",
+  "Telefono": "4210-9876",
+  "Tipo_venta_autorizado": "Crédito",
+  "Observaciones": "Dirección actualizada"
+}
+
+-Resultado esperado:
+{ "message": "Cliente actualizado exitosamente" }
+
+5. ✅ Eliminar un cliente
+
+-Método: DELETE
+
+-URL: http://localhost:5000/api/clientes/CL005
+
+-Resultado esperado:
+{ "message": "Cliente eliminado correctamente" }
+
+6. ✅ Buscar clientes por municipio
+
+-Método: GET
+-URL: http://localhost:5000/api/clientes/municipio/1
+
+Respuesta esperada:
+[
+  {
+    "ID_cliente": "CL001",
+    "Cod_departamento": "01",
+    "Cod_municipio": 1,
+    "Numero_Cliente": "12345678",
+    "Nombre_Contacto": "Carlos Pérez",
+    "Nombre_Negocio": "Distribuidora El Buen Precio",
+    "Direccion": "Zona 1, Guatemala",
+    "NIT": 12345678,
+    "Encargado_bodega": "Lucía Gómez",
+    "Telefono": "5555-5555",
+    "Tipo_venta_autorizado": "Contado",
+    "Observaciones": "Cliente frecuente"
+  }
+]
+
+7. ✅ Buscar clientes por departamento
+-Método: GET
+-URL: http://localhost:5000/api/clientes/departamento/01
+
+8. ✅ Buscar clientes por nombre/contacto/negocio (coincidencia parcial)
+-Método: GET
+-URL: http://localhost:5000/api/clientes/buscar/Mixco
+
+🔎 Esto busca por nombre de contacto, nombre del negocio o número de cliente que contenga el texto.
+
+Respuesta esperada:
+[
+  {
+    "ID_cliente": "CL002",
+    "Nombre_Contacto": "María López",
+    "Nombre_Negocio": "Super Tienda Mixco",
+    ...
+  }
+]
+
+9. ✅ Verificar si existe cliente por ID
+-Método: GET
+-URL: http://localhost:5000/api/clientes/existe/CL001
+
+Respuesta esperada si existe:
+{ "existe": true }
+Respuesta si no existe:
+
+{ "existe": false }
+
+----------------------------------------------
+USUARIOS
+----------------------------------------------
+1. Obtener todos los usuarios
+GET
+http://localhost:5000/api/usuarios
+
+2. Obtener usuario por ID
+GET
+http://localhost:5000/api/usuarios/1
+
+3. Buscar usuarios por email
+GET
+http://localhost:5000/api/usuarios/search?q=gerente.general@imporcomgua.com
+
+4. Verificar si existe un usuario por ID
+GET
+http://localhost:5000/api/usuarios/1/exists
+
+5. Crear un nuevo usuario
+POST
+http://localhost:5000/api/usuarios
+
+{
+  "Correo": "isa@example.com",
+  "Contrasena": "123456",
+  "ID_rol": 1
+}
+
+6. Actualizar un usuario existente
+PUT
+http://localhost:5000/api/usuarios/2
+
+{
+  "Correo_electronico": "nuevo_correo@imporcomgua.com",
+  "Rol": "Gerente de Inventario"
+}
+
+7. Eliminar un usuario por ID
+DELETE
+http://localhost:5000/api/usuarios/1
